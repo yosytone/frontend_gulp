@@ -1,0 +1,138 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'libs';
+@import 'global';
+
+// Общие стили
+$body-font: Arial, sans-serif;
+
+.body {
+  font-family: $body-font;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Стили для секции каталога
+.catalog {
+  margin-bottom: 30px;
+
+  &__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+// Стили для карточки товара
+.card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  //flex: 0 0 calc(100% - 20px);
+
+  max-width: 288px; // Максимальная ширина карточки для мобильной версии
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__wrapper {
+    padding: 20px;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  &__price-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    &__price {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    &__price-inner {
+      display: flex;
+      align-items: baseline;
+    }
+
+    &__price-number {
+      font-size: 24px;
+    }
+
+    &__price-currency {
+      font-size: 18px;
+    }
+  }
+
+  &__button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &__booked-wrapper {
+    margin-top: 10px;
+
+    &__text {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    &__link {
+      color: #007bff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Медиа запросы
+  @media only screen and (min-width: 768px) {
+    max-width: 336px; // Максимальная ширина карточки для планшетной версии
+    flex: 0 0 calc(50% - 20px);
+  }
+
+  @media only screen and (min-width: 1280px) {
+    max-width: 372px; // Максимальная ширина карточки для десктопной версии
+    flex: 0 0 calc(33.333% - 20px);
+  }
+}
+

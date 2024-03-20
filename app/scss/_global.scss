@@ -1,0 +1,46 @@
+html,
+body {
+	margin: 0;
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+.footer {
+	flex: 0 0 auto;
+}
+
+.container {
+  min-width: 320px;
+  
+  @media (min-width: $tablet-width) {
+  }
+  
+@media (min-width: $desktop-width) {
+    max-width: $desktop-width;
+  }
+}
+
+a {
+	text-decoration: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+	box-sizing: border-box;
+  }
+  
+  img {
+	display: block;
+	object-fit: cover;
+  }
+
+
