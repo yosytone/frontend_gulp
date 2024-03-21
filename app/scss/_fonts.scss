@@ -2,7 +2,7 @@
   font-family: "Roboto";
   font-weight: 500;
   font-style: normal;
-  src: url("../../fonts/roboto-medium.woff2") format("woff2");
+  src: url("../fonts/roboto-medium.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -10,7 +10,7 @@
   font-family: "Roboto";
   font-weight: 500;
   font-style: normal;
-  src: url("../../fonts/roboto-medium.woff") format("woff");
+  src: url("../fonts/roboto-medium.woff") format("woff");
   font-display: swap;
 }
 
@@ -18,7 +18,7 @@
   font-family: "Roboto";
   font-weight: 700;
   font-style: normal;
-  src: url("../../fonts/roboto-bold.woff2") format("woff2");
+  src: url("../fonts/roboto-bold.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -26,7 +26,7 @@
   font-family: "Roboto";
   font-weight: 700;
   font-style: normal;
-  src: url("../../fonts/roboto-bold.woff") format("woff");
+  src: url("../fonts/roboto-bold.woff") format("woff");
   font-display: swap;
 }
 
@@ -34,7 +34,7 @@
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../../fonts/open-sans-regular.woff2") format("woff2");
+  src: url("../fonts/open-sans-regular.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -42,15 +42,7 @@
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../../fonts/open-sans-regular.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../../fonts/open-sans-bold.woff2") format("woff2");
+  src: url("../fonts/open-sans-regular.woff") format("woff");
   font-display: swap;
 }
 
@@ -58,7 +50,15 @@
   font-family: "Open Sans";
   font-weight: 700;
   font-style: normal;
-  src: url("../../fonts/open-sans-bold.woff") format("woff");
+  src: url("../fonts/open-sans-bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/open-sans-bold.woff") format("woff");
   font-display: swap;
 }
 
@@ -66,7 +66,7 @@
   font-family: "PT Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../../fonts/pt-sans-regular.woff2") format("woff2");
+  src: url("../fonts/pt-sans-regular.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -74,6 +74,6 @@
   font-family: "PT Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../../fonts/pt-sans-regular.woff") format("woff");
+  src: url("../fonts/pt-sans-regular.woff") format("woff");
   font-display: swap;
 }
