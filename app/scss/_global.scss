@@ -12,6 +12,7 @@ body {
 .main {
   flex: 1 0 auto;
 }
+
 .footer {
   flex: 0 0 auto;
 }
@@ -23,7 +24,7 @@ body {
   @media (min-width: $tablet-width) {
     max-width: 700px;
   }
-  
+
   @media (min-width: $desktop-width) {
     max-width: 1180px;
   }
@@ -38,7 +39,7 @@ a {
 *::after {
   box-sizing: border-box;
 }
-  
+
 img {
   display: block;
   object-fit: cover;
@@ -47,5 +48,3 @@ img {
 .none {
   display: none !important;
 }
-
-

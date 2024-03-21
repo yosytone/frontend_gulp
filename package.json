@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vadym Prokopchuk",
   "license": "ISC",
   "devDependencies": {
+    "@stylistic/stylelint-plugin": "^2.1.0",
     "browser-sync": "^2.26.13",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
@@ -18,6 +18,12 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify-es": "^2.0.0",
     "jquery": "^3.5.1",
-    "sass": "^1.58.0"
+    "postcss": "^8.4.38",
+    "sass": "^1.58.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-htmlacademy": "^4.1.0"
+  },
+  "dependencies": {
+    "postcss-scss": "^4.0.9"
   }
 }
