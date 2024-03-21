@@ -49,7 +49,6 @@ function scripts() {
     .pipe(browserSync.stream())
 }
 
-
 function styles() {
   return src('app/scss/style.scss')
       .pipe(scss({outputStyle: 'compressed'}))
@@ -61,19 +60,7 @@ function styles() {
       .pipe(dest('app/css'))
       .pipe(browserSync.stream())
 }
-///////////////////////////
-function styles2() {
-  return src('app/scss/devstyle.scss')
-      .pipe(scss({outputStyle: 'compressed'}))
-      .pipe(concat('devstyle.min.css'))
-      .pipe(autoprefixer({
-        overrideBrowserslist: ['last 10 version'],
-        grid: true
-      }))
-      .pipe(dest('app/css'))
-      .pipe(browserSync.stream())
-}
-////////////////////////////////////
+
 function build() {
   return src([
     'app/css/style.min.css',
@@ -87,15 +74,11 @@ function build() {
 
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
-  watch(['app/scss/**/*.scss'], styles2);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/*.html']).on('change', browserSync.reload);
 }
 
 exports.styles = styles;
-////////////////////////////
-exports.styles = styles2;
-/////////////////////////
 exports.watching = watching;
 exports.browsersync = browsersync;
 exports.scripts = scripts;
