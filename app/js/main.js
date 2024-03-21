@@ -1,28 +1,39 @@
-const catalog = document.querySelector(".rooms__cards");
+const cards = document.querySelector(".rooms__cards");
 
-const setReservation = (card, method, isDisabled, tabindex) => {
-  card.classList[method]("reserved");
-  card.querySelector(".card__button").disabled = isDisabled;
-  card.querySelector(".card__title-link").setAttribute("tabindex", tabindex);
+// Функция для установки состояния резервации карточки
+const setReservation = (card, isReserved) => {
+  card.classList.toggle("reserved", isReserved);
 };
 
-const getCardReserved = (evt) => {
+// Функция для обработки нажатия на карточку
+const handleCardClick = (evt) => {
+  const parentCard = evt.target.closest(".card");
+
+  // Если нажата кнопка на карточке, добавляем слушатель для отмены резервации
+  if (evt.target.closest(".card__button")) {
+    parentCard.addEventListener("mouseout", handleMouseOut);
+  } 
+  // Если нажата область снятия резервации, снимаем резервацию
+  else if (evt.target.closest(".card__booked") || evt.target.closest(".card__booked-wrapper") && !evt.target.closest(".card__booked-link")) {
+    setReservation(parentCard, false);
+  }
+};
+
+// Функция для обработки выхода указателя мыши за пределы карточки
+const handleMouseOut = (evt) => {
   const parentCard = evt.target.closest(".card");
   let relatedTarget = evt.relatedTarget;
+
+  // Если указатель мыши вышел за пределы карточки, устанавливаем резервацию
   if (!parentCard.contains(relatedTarget)) {
-    setReservation(parentCard, "add", true, "-1")
-    parentCard.removeEventListener("mouseout", getCardReserved);
+    setReservation(parentCard, true);
+    parentCard.removeEventListener("mouseout", handleMouseOut);
   }
 };
 
-const setStatusOfReserve = (evt) => {
-  const parentCard = evt.target.closest(".card");
+// Добавляем слушатель для нажатия на карточку
+cards.addEventListener("click", handleCardClick);
 
-  if (evt.target.closest(".card__button")) {
-    parentCard.addEventListener("mouseout", getCardReserved);
-  } else if (evt.target.closest(".card__booked") || evt.target.closest(".card__booked-wrapper") && !evt.target.closest(".card__booked-link")) {
-    setReservation(parentCard, "remove", false, "0")
-  }
-};
 
-catalog.addEventListener("click", setStatusOfReserve);
+
+
