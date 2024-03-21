@@ -4,6 +4,7 @@
 @import 'libs';
 @import 'global';
 
+
 .body {
   font-family: $main-font;
   font-style: normal;
@@ -13,29 +14,47 @@
   color: $color-font-1;
 
   background:
-  $gradient-2 center/cover no-repeat,
-  url("../../images/background-line.svg") top/1020px 453px no-repeat fixed,
-  url("../../images/background-cover.svg") top/1020px 453px no-repeat fixed,
-  $gradient-3 center/cover no-repeat;
+    $gradient-2 center/cover no-repeat,
+    url("../../images/background-line.svg") top/1020px 453px no-repeat fixed,
+    url("../../images/background-cover.svg") top/1020px 453px no-repeat fixed,
+    $gradient-3 center/cover no-repeat;
 
   @media (min-width: $tablet-width) {
     font-size: 16px;
     line-height: 24px;
 
     background:
-    $gradient-2 center/cover no-repeat,
-    url("../../images/background-line.svg") top/1920px 852px no-repeat fixed,
-    url("../../images/background-cover.svg") top/1920px 852px no-repeat fixed,
-    $gradient-3 center/cover no-repeat;
+      $gradient-2 center/cover no-repeat,
+      url("../../images/background-line.svg") top/1920px 852px no-repeat fixed,
+      url("../../images/background-cover.svg") top/1920px 852px no-repeat fixed,
+      $gradient-3 center/cover no-repeat;
   }
 }
 
 .rooms {
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px 0;
+
   
   &__title {
-    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    @media (min-width: $tablet-width) {
+      font-size: 36px;
+      margin-bottom: 26px;
+      line-height: 55px;
+    }
+    @media (min-width: $desktop-width) {
+      margin-bottom: 28px;
+    }
   }
 
   &__cards {
@@ -160,7 +179,7 @@
 
           &__price {
             padding-top: 18px;
-            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            border-top: 1px solid #ffffff33;
               
             display: flex;
             flex-wrap: wrap;
@@ -271,7 +290,254 @@
 
               background-color: $color-primary-3;
             }
+            
           }
       }
   }
 }
+
+
+//////////////////////////////////тени карточек
+
+
+.card:hover .card__motivator,
+.card:focus-visible .card__motivator {
+      visibility: visible;
+      opacity: 1;
+      outline: none;
+    }
+  
+    .card:hover,
+    .card:focus-visible {
+      box-shadow: -3px 9px 19px -2px rgba(34, 60, 80, 0.64);
+      outline: none;
+    }
+///////////////////////мотиватор
+/// 
+/// 
+.card__motivator {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+
+  display: inline-block;
+  padding: 4px 4px 5px 16px;
+
+  font-family: $secondary-font;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+
+  background-color: $color-accent;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0.3s ease,
+  opacity 0.3s ease;
+
+  &::before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(100%);
+
+    width: 36px;
+    height: 100%;
+
+    background-image: url("../../images/icon-motivator.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    content: "";
+  }
+}
+////////////////////////////
+
+
+  .card__booked {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  
+    display: flex;
+    flex-direction: column;
+  
+    border-radius: 13px;
+    background-color: $color-booked;
+    visibility: hidden;
+    opacity: 0;
+  
+    transition: visibility 0.3s ease,
+      opacity 0.3s ease;
+  
+    @media (min-width: $tablet-width) {
+      border-radius: 10px;
+    }
+  }
+  
+  .card.reserved .card__booked {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .card.reserved:hover,
+  .card.reserved:focus-visible {
+    box-shadow: none;
+  }
+  
+  .card.reserved:hover .card__motivator,
+  .card.reserved:focus-visible .card__motivator {
+    visibility: hidden;
+    opacity: 0;
+    outline: none;
+  }
+  
+  .card__button:disabled {
+    pointer-events: none;
+    background-color: $color-currency;
+  }
+  
+  .card__booked-wrapper {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    z-index: 1;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 25px 21px 29px 21px;
+
+    min-width: 288px;
+    min-height: 149px;
+  
+    text-align: center;
+    line-height: 21px;
+  
+    background-color: $color-secondary;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+  
+    transition: visibility 0.3s ease,
+    opacity 0.3s ease;
+
+    @media (min-width: $tablet-width) {
+      min-width: 336px;
+      min-height: 162px;
+    }
+
+    @media (min-width: $desktop-width) {
+      min-width: 372px;
+      min-height: 96px;
+    }
+  }
+  
+  .card.reserved .card__booked-wrapper {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .card__booked-text {
+    margin: 0;
+  }
+  
+  .card__booked-link {
+    position: relative;
+  
+    color: $color-primary-2;
+  
+    transition: color 0.3s ease;
+  
+    &:hover::before,
+    &:focus-visible::before {
+      position: absolute;
+      bottom: 1px;
+  
+      width: 100%;
+      height: 1px;
+  
+      background-color: $color-primary-2;
+  
+      transition: visibility 0.3s ease,
+        opacity 0.3s ease;
+  
+      content: "";
+    }
+  
+    &:active::before {
+      visibility: hidden;
+      opacity: 0;
+    }
+  
+    &:hover,
+    &:focus-visible {
+      outline: none;
+    }
+  
+    &:active {
+      color: $color-primary-5;
+    }
+  }
+
+
+
+
+
+
+
+
+
+  .card__title-link {
+    position: relative;
+  
+    font-family: $secondary-font;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: $color-font-1;
+  
+    transition: text-decoration 0.3s ease,
+      color 0.3s ease;
+  
+    @media (min-width: $tablet-width) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    &:hover::before,
+    &:focus-visible::before {
+      position: absolute;
+      bottom: 2px;
+  
+      width: 100%;
+      height: 1px;
+  
+      background-color: $color-font-1;
+  
+  
+      transition: visibility 0.3s ease,
+        opacity 0.3s ease;
+  
+      content: "";
+    }
+  
+    &:active::before {
+      visibility: hidden;
+      opacity: 0;
+    }
+  
+    &:active {
+      color: $color-pressed;
+    }
+  
+    &:focus-visible {
+      outline: none;
+    }
+  }
