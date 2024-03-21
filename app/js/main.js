@@ -1,5 +1,3 @@
-const cards = document.querySelector(".rooms__cards");
-
 // Функция для установки состояния резервации карточки
 const setReservation = (card, isReserved) => {
   card.classList.toggle("reserved", isReserved);
@@ -31,5 +29,6 @@ const handleMouseOut = (evt) => {
   }
 };
 
+const cards = document.querySelector(".rooms__cards");
 // Добавляем слушатель для нажатия на карточку
 cards.addEventListener("click", handleCardClick);
