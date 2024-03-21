@@ -33,7 +33,3 @@ const handleMouseOut = (evt) => {
 
 // Добавляем слушатель для нажатия на карточку
 cards.addEventListener("click", handleCardClick);
-
-
-
-

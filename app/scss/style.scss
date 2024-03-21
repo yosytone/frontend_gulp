@@ -143,6 +143,7 @@
     line-height: 26px;
     font-weight: 700;
     color: #fff;
+    font-family: $main-font;
 
     @media (min-width: $tablet-width) {
       font-size: 24px;
@@ -230,11 +231,11 @@
   }
 
   &__price__currency-icon {
-    font-family: $secondary-font;
+    font-family: $main-font;
     font-size: 20px;
     line-height: 32px;
     font-weight: normal;
-    color: rgba(255, 255, 255, .6);
+    color: $color-currency-2;
 
     @media (min-width: $tablet-width) {
       font-size: 23px;
@@ -465,8 +466,7 @@
 
 .card__title-link {
   position: relative;
-  
-  font-family: $secondary-font;
+
   font-size: 20px;
   line-height: 26px;
   font-weight: 700;

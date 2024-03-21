@@ -1,4 +1,6 @@
-// Colors
+$tablet-width: 768px;
+$desktop-width: 1280px;
+
 $color-primary-1: #F91155;
 $color-primary-2: #FF4B77;
 $color-primary-3: #D8003F;
@@ -18,11 +20,6 @@ $gradient-1: linear-gradient(180deg, rgba(10, 34, 64, 0.10) 0%, #0A2240 100%);
 $gradient-2: linear-gradient(180deg, rgba(222, 237, 255, 0.60) 0%, rgba(166, 204, 250, 0.50) 100%);
 $gradient-3: linear-gradient(90deg, #F0F0F0 0%, #D4D4D4 100%);
 
-// Fonts
 $main-font: "Roboto", "Arial", sans-serif;
 $secondary-font: "Open Sans", "Arial", sans-serif;
 $third-font: "PT Sans", "Arial", sans-serif;
-
-// Viewports
-$tablet-width: 768px;
-$desktop-width: 1280px;
